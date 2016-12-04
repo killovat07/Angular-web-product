@@ -1,5 +1,11 @@
 # Angular-web-product
-Web application with login, registration, product-list, product-details, rate, comments
+Web application (angular)
+
+- Viewing list of products;
+- Posting comments;
+- Posting rates of products;
+- Registration and sign in;
+- Only registered users can post comments
 
 ## Quick Start ##
 
