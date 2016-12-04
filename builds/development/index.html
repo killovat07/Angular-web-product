@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Light IT Test</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link rel="stylesheet" href="css/main.min.css">
+
+</head>
+
+<body>
+<header>
+    <div class="container-flex">
+        <a href="#" class="logo" ui-sref=".products">LightIt TEST</a>
+        <nav ng-controller="AuthController">
+            <a ui-sref-active="active" ui-sref=".products">Products</a>
+            <a ng-if="!checkStorage()" ui-sref-active="active" ui-sref="auth.sign-in">Login</a>
+            <a ng-if="!checkStorage()" ui-sref-active="active" ui-sref="auth.sign-up">Registration</a>
+            <a ng-if="checkStorage()" ng-click="logout()" ui-sref="auth.sign-in">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main ui-view></main>
+
+<footer></footer>
+
+</body>
+
+<script src="libs/angular/angular.concat.js"></script>
+<script src="app/app.js"></script>
+</html>

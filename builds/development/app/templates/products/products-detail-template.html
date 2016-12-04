@@ -1,0 +1,45 @@
+<div class="container">
+    <h1 style="text-transform: uppercase;">{{detail.title}}</h1>
+    <div class="product-detail-wrap">
+        <div class="product-detail">
+            <div class="product-card">
+                <div>
+                    <img ng-src="http://smktesting.herokuapp.com/static/{{detail.img}}" alt="{{detail.title}}">
+                </div>
+                <div class="product-card-title">
+                    <span class="md-headline">{{detail.text}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="comments-wrap">
+
+            <form name="CommentForm">
+                <div class="comments-header">
+                    <h2>Comments and rate</h2>
+                </div>
+                <jk-rating-stars rating="user.rate" on-rating="onItemRating(rating)" ng-model="user.rate" style="margin-top: 10px"></jk-rating-stars>
+                    <textarea name="text" ng-model="user.text" placeholder="Write comment please"></textarea>
+                    <button ng-click="Comment()">Send</button>
+            </form>
+
+            <div class="comment-content">
+                <div class="comment-item" ng-repeat="review in reviews | orderBy:'-created_at'| limitTo: limit">
+                    <div class="img-wrap">
+                        <img ng-src="https://randomuser.me/portraits/thumb/men/{{$index}}.jpg" alt="ALT">
+                        <jk-rating-stars rating="review.rate"></jk-rating-stars>
+                    </div>
+
+                    <div class="md-list-item-text">
+                        <h3>{{review.created_by.username}}</h3>
+
+                        <h4>{{review.text}}</h4>
+                        <p>{{review.created_at | date:"MM/dd/yyyy 'at' h:mma"}}</p>
+                    </div>
+                </div>
+            </div>
+            <!--<button class="loadmore" ng-click="loadMore()">Load more</button>-->
+        </div>
+
+    </div>
+</div>

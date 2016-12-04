@@ -1,0 +1,18 @@
+<div class="container">
+    <h1 style="text-align: center; text-transform: uppercase;">Product-list</h1>
+    <form name="SearchForm">
+    <input class="product-search" type="text" ng-model="search" placeholder="Search product...">
+    </form>
+    <div class="product-list">
+        <div class="product-card" ng-repeat="prev in products | filter:search" ui-sref="products.detail({obj: prev, id: prev.id})">
+            <div>
+                <img ng-src="http://smktesting.herokuapp.com/static/{{prev.img}}" alt="{{prev.title}}">
+            </div>
+            <div class="product-card-title">
+                <span class="md-headline">{{prev.title}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
